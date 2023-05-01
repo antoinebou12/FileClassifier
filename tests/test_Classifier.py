@@ -1,55 +1,52 @@
-# test_Classifier.py
-
-import os
-import shutil
-import arrow
-import classifier.classifier as clf
 import pytest
+import os
+from src.Classifier import Classifier
+from typer.testing import CliRunner
 
-__location = os.path.realpath(
-    os.path.join(os.getcwd(), os.path.dirname(__file__), '.unittest'))
+runner = CliRunner()
 
-__tmp_files = [u'test_file', u'test_file_中文']
-__tmp_dirs = [u'test_dir', u'test_dir_中文']
+@pytest.fixture
+def classifier():
+    return Classifier(path="test_input")
 
+def test_move_to(classifier):
+    # Create temporary folders and a file to move
+    os.makedirs("test_source")
+    os.makedirs("test_destination")
+    with open("test_source/test_file.txt", "w") as file:
+        file.write("Test content")
 
-def setup_module():
-    if not os.path.exists(__location):
-        os.mkdir(__location)
-    os.chdir(__location)
-    for file_ in __tmp_files:
-        open(file_, 'w').close()
-    for dir_ in __tmp_dirs:
-        if not os.path.exists(dir_):
-            os.mkdir(dir_)
+    # Call the move_to function
+    classifier.move_to("test_file.txt", "test_source", "test_destination")
 
+    # Check if the file has been moved
+    assert not os.path.exists("test_source/test_file.txt")
+    assert os.path.exists("test_destination/test_file.txt")
 
-def teardown_module():
-    shutil.rmtree(__location)
+    # Clean up temporary folders and files
+    os.remove("test_destination/test_file.txt")
+    os.rmdir("test_source")
+    os.rmdir("test_destination")
 
+def test_classify(classifier):
+    # Create temporary folders and files
+    os.makedirs("test_input", exist_ok=True)
+    os.makedirs("test_output", exist_ok=True)
+    with open("test_input/test_file.txt", "w") as file:
+        file.write("Test content")
 
-def test_moveto():
-    target_dir = os.path.abspath(os.path.join(__location, 'moveto'))
-    for file_ in __tmp_files:
-        clf.moveto(file_, __location, target_dir)
+    # Call the classify function
+    classifier.classify(classifier.formats, "test_output", "test_input")
 
-    for file_ in __tmp_files:
-        final_file_path = os.path.join(target_dir, file_)
-        assert os.path.exists(final_file_path)
+    # Check if the file has been classified
+    assert not os.path.exists("test_input/test_file.txt")
+    assert os.path.exists("test_output/document/test_file.txt")
 
-
-def test_classify_bydate():
-    date_format = 'YYYY-MM-DD'
-    target_files = []
-    for file_ in __tmp_files:
-        target_dir = arrow.get(os.path.getctime(file_)).format(date_format)
-        final_file_path = os.path.join(target_dir, file_)
-        target_files.append(final_file_path)
-    clf.classify_by_date(date_format, __location)
-    for file_ in target_files:
-        assert os.path.exists(file_)
-    for dir_ in __tmp_dirs:
-        assert os.path.exists(dir_)
+    # Clean up temporary folders and files
+    os.remove("test_output/document/test_file.txt")
+    os.rmdir("test_output/document")
+    os.rmdir("test_output")
+    os.rmdir("test_input")
 
 if __name__ == '__main__':
     pytest.main()

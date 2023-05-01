@@ -8,19 +8,19 @@ It uses the Typer library to create a command-line interface for users to intera
 import os
 import subprocess
 import sys
-from typing import List, Optional
+from typing import Optional
 from rich.console import Console
-import typer
+from rich.table import Table
 import arrow
+import mimetypes
 
-from src import TopicModeler
-
-app = typer.Typer()
+from src.TopicModeler import TopicModeler
 
 VERSION = 'FileClassifier'
 DIRCONFFILE = '.classifier.conf'
 PLATFORM = sys.platform
 OS = os.name
+
 
 class Classifier:
         """
@@ -30,59 +30,64 @@ class Classifier:
         Images 		- 	https://en.wikipedia.org/wiki/Image_file_formats
         Video 		- 	https://en.wikipedia.org/wiki/Video_file_format
         Documents 	-	https://en.wikipedia.org/wiki/List_of_Microsoft_Office_filename_extensions
+        Minetypes 	-	https://www.freeformatter.com/mime-types-list.html
         """
+        formats = {
+            "audio": ['mp3', 'wav', 'wma', 'aac', 'flac', 'm4a', 'ogg', 'opus'],
+            "image": ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg', 'webp', 'tiff'],
+            "video": ['mp4', 'mov', 'wmv', 'avi', 'avchd', 'flv', 'f4v', 'swf', 'mkv', 'webm', 'vob', 'ogv', 'drc', 'gifv', 'mng', 'mts', 'm2ts', 'ts', 'mxf', 'roq', 'nsv', 'amv', 'm4p', 'm4v', 'mpg', 'mp2', 'mpeg', 'mpe', 'mpv', 'm2v', 'm4v', 'svi', '3gp', '3g2', 'mxf', 'roq', 'nsv', 'f4p', 'f4a', 'f4b'],
+            "archive": ['7z', 'arj', 'deb', 'pkg', 'rar', 'rpm', 'tar.gz', 'z', 'zip'],
+            "document": ['doc', 'docx', 'odt', 'pdf', 'xls', 'xlsx', 'ods', 'ppt', 'pptx', 'txt', 'rtf'],
+            "executable": ['apk', 'bat', 'bin', 'cgi', 'pl', 'com', 'exe', 'gadget', 'jar', 'msi', 'py', 'wsf'],
+            "font": ['fnt', 'fon', 'otf', 'ttf'],
+            "web": ['asp', 'aspx', 'cer', 'cfm', 'cgi', 'pl', 'css', 'htm', 'html', 'js', 'jsp', 'part', 'php', 'py', 'rss', 'xhtml'],
+            "config": ['cfg', 'conf', 'ini', 'log', 'reg', 'url'],
+            "database": ['accdb', 'db', 'dbf', 'mdb', 'pdb', 'sql'],
+            "email": ['email', 'eml', 'emlx', 'msg', 'oft', 'ost', 'pst', 'vcf'],
+            "presentation": ['key', 'odp', 'pps', 'ppt', 'pptx'],
+            "programming": ['c', 'class', 'cpp', 'cs', 'h', 'java', 'sh', 'swift', 'vb'],
+            "spreadsheet": ['ods', 'xls', 'xlsm', 'xlsx'],
+            "system": ['bak', 'cab', 'cfg', 'cpl', 'cur', 'dll', 'dmp', 'drv', 'icns', 'ico', 'ini', 'lnk', 'msi', 'sys', 'tmp'],
+            "misc": ['ics', 'ms', 'part', 'torrent'],
+            "desktop": ['desktop', 'lnk'],
+            "ignore": ['part', 'desktop'],
+            "raw": ['raw'],
+        }
+
         def __init__(self, path: str, config: Optional[str] = None):
+            self.config = config
             self.get_config()
             self.path = path
-            self.config = config
-            self.topics = ['audio', 'image', 'video', 'archive', 'document', 'executable', 'font', 'web', 'config']
-            self.topic_modeler = TopicModeler(
-                num_topics=len(self.topics)
-            )
-            self.audio_formats = ['mp3', 'wav', 'wma', 'aac', 'flac', 'm4a', 'ogg', 'opus']
-            self.image_formats = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg', 'webp', 'tiff']
-            self.video_formats = ['mp4', 'mov', 'wmv', 'avi', 'avchd', 'flv', 'f4v', 'swf', 'mkv', 'webm', 'vob', 'ogv', 'drc', 'gifv', 'mng', 'mts', 'm2ts', 'ts', 'mxf', 'roq', 'nsv', 'amv', 'm4p', 'm4v', 'mpg', 'mp2', 'mpeg', 'mpe', 'mpv', 'm2v', 'm4v', 'svi', '3gp', '3g2', 'mxf', 'roq', 'nsv', 'f4p', 'f4a', 'f4b']
-            self.archive_formats = ['zip', 'rar', '7z', 'tar', 'gz', 'bz2', 'xz', 'lz', 'lzma', 'tlz', 'txz', 'tzo', 'tar.lzma', 'tar.xz', 'tar.bz2', 'tbz2', 'tbz', 'tar.gz', 'tgz', 'Z', 'tar.Z', 'rar', 'zipx', 'iso', 'cab', 'dmg', 'cpio', 'cbr', 'cbz', 'cb7', 'cba', 'apk', 'jar', 'xar', 'pkg', 'deb', 'rpm']
-            self.document_formats = ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf', 'odt', 'ods', 'odp', 'odg', 'odf', 'txt', 'rtf', 'tex', 'wks', 'wps', 'wpd', 'pages', 'numbers', 'key', 'csv']
-            self.executable_formats = ['exe', 'msi', 'bin', 'apk', 'app', 'bat', 'cgi', 'com', 'gadget', 'jar', 'wsf']
-            self.font_formats = ['ttf', 'otf', 'woff', 'woff2']
-            self.web_formats = ['html', 'htm', 'css', 'js', 'php', 'json', 'xml']
-            self.config_formats = ['conf', 'ini', 'cfg', 'cnf', 'config', 'properties', 'prop', 'settings', 'option', 'desktop', 'plist', 'reg', 'regedit', 'reged', 'regbak', 'regtrans-ms', 'cfg', 'conf', 'ini', 'properties', 'prop', 'desktop', 'plist', 'reg', 'regedit', 'reged', 'regbak', 'regtrans-ms']
-            self.linux_formats = ['deb', 'rpm']
-            self.windows_formats = ['exe', 'msi']
-            self.mac_formats = ['dmg']
-            self.books_formats = ['mobi', 'epub', 'chm']
-            self.ignore_formats = ['part', 'desktop']
             self.console = Console()
 
         def get_config(self):
+            """Determines the appropriate configuration file location based on the platform."""
             if PLATFORM == 'darwin':
-                self.config = os.path.join(os.path.expanduser('~'), '.classifier-master.conf')
+                self.config = os.path.join(
+                    os.path.expanduser('~'), '.classifier-master.conf')
             elif PLATFORM == 'win32' or OS == 'nt':
-                self.config = os.path.join(os.getenv('userprofile'), 'classifier-master.conf')
+                self.config = os.path.join(
+                    os.getenv('userprofile'), 'classifier-master.conf')
             elif PLATFORM == 'linux' or PLATFORM == 'linux2' or OS == 'posix':
-                self.config = os.path.join(os.getenv('HOME'), '.classifier-master.conf')
+                self.config = os.path.join(
+                    os.getenv('HOME'), '.classifier-master.conf')
             else:
-                self.config = os.path.join(os.getcwd(), '.classifier-master.conf')
+                self.config = os.path.join(
+                    os.getcwd(), '.classifier-master.conf')
 
         def create_default_config(self):
-                with open(self.config, "w") as conffile:
-                    conffile.write("IGNORE: part, desktop\n" +
-                    "Music: mp3, aac, flac, ogg, wma, m4a, aiff, wav, amr\n" +
-                    "Videos: flv, ogv, avi, mp4, mpg, mpeg, 3gp, mkv, ts, webm, vob, wmv\n" +
-                    "Pictures: png, jpeg, gif, jpg, bmp, svg, webp, psd, tiff\n" +
-                    "Archives: rar, zip, 7z, gz, bz2, tar, dmg, tgz, xz, iso, cpio\n" +
-                    "Documents: txt, pdf, doc, docx, odf, xls, xlsv, xlsx, " +
-                    "ppt, pptx, ppsx, odp, odt, ods, md, json, csv\n" +
-                    "Books: mobi, epub, chm\n" +
-                    "DEBPackages: deb\n" +
-                    "Programs: exe, msi\n" +
-                    "RPMPackages: rpm")
-                self.console.print(f"CONFIG file created at: {self.config}")
-                return
+            """Creates a default configuration file if one is not available."""
+
+            with open(self.config, "w") as conffile:
+                conffile.write("IGNORE: part, desktop\n")
+                for category, extensions in self.formats.items():
+                    conffile.write(f"{category.capitalize()}: {', '.join(extensions)}\n")
+
+            self.console.print(f"CONFIG file created at: {self.config}")
+            return
 
         def check_config(self):
-            """ create a default config if not available """
+            """Checks for the existence of the configuration file and reads it into the `formats` dictionary."""
             if not os.path.isdir(os.path.dirname(self.config)):
                 os.makedirs(os.path.dirname(self.config))
             if not os.path.isfile(self.config):
@@ -90,56 +95,102 @@ class Classifier:
 
             with open(self.config, 'r') as file:
                 for items in file:
-                    spl = items.replace('\n', '').split(':')
-                    key = spl[0].replace(" ","")
-                    val = spl[1].replace(" ","")
-                    self.formats[key] = val
+                    if items.strip() and ":" in items:
+                        key, val = items.strip().split(':')
+                        key = key.strip()
+                        val = val.strip().split(', ')
+                        self.formats[key] = val
             return
 
+        def check_minetypes(self):
+            for category, extensions in self.formats.items():
+                self.console.print(f"{category.upper()}:")
+                for extension in extensions:
+                    mimetype, _ = mimetypes.guess_type(f"file.{extension}")
+                    self.console.print(f"  - {extension}: {mimetype}")
+                self.console.print()
+
         def move_to(self, filename, from_folder, to_folder):
-                from_file = os.path.join(from_folder, filename)
-                to_file = os.path.join(to_folder, filename)
-                    # to move only files, not folders
-                if to_file != from_file:
-                        self.console.print(f'moved: {str(to_file)}')
-                        if os.path.isfile(from_file):
-                            if not os.path.exists(to_folder):
-                                os.makedirs(to_folder)
-                            os.rename(from_file, to_file)
-                return
+            """
+            Moves a file from the source folder to the destination folder.
+
+            Args:
+                filename (str): The name of the file to move.
+                from_folder (str): The path of the source folder containing the file.
+                to_folder (str): The path of the destination folder to move the file to.
+            """
+            from_file = os.path.join(from_folder, filename)
+            to_file = os.path.join(to_folder, filename)
+                # to move only files, not folders
+            if to_file != from_file:
+                    self.console.print(f'moved: {str(to_file)}')
+                    if os.path.isfile(from_file):
+                        if not os.path.exists(to_folder):
+                            os.makedirs(to_folder)
+                        os.rename(from_file, to_file)
+            return
 
         def classify(self, formats, output, directory):
-                # sourcery skip: low-code-quality
-                for file in os.listdir(directory):
-                        tmpbreak = False
-                                # set up a config per folder
-                        if file != DIRCONFFILE and os.path.isfile(
-                            os.path.join(directory, file)):
-                                filename, file_ext = os.path.splitext(file)
-                                file_ext = file_ext.lower().replace('.', '')
-                                if 'IGNORE' in self.formats:
-                                    for ignored in self.formats['IGNORE'].replace('\n', '').split(','):
-                                        if file_ext == ignored:
-                                            tmpbreak = True
-                                if not tmpbreak:
-                                        for folder, ext_list in list(formats.items()):
-                                                                    # never move files in the ignore list
-                                                if folder != 'IGNORE':
-                                                        folder = os.path.join(output, folder)
-                                                        # make sure we are passing a list to the extension checker
-                                                        if type(ext_list) == str:
-                                                            ext_list = ext_list.split(',')
-                                                        for tmp_ext in ext_list:
-                                                                if file_ext == tmp_ext:
-                                                                        try:
-                                                                                self.moveto(file, directory, folder)
-                                                                        except Exception as e:
-                                                                                self.console.print(f'Cannot move file - {file} - {str(e)}')
-                        """
-                elif os.path.isdir(os.path.join(directory, file)) and self.args.recursive:
-                    self.classify(self.formats, output, os.path.join(directory, file))
-                """
+            """
+            Classifies and moves the files in the specified directory based on their file type.
+            """
+            for file in os.listdir(directory):
+                if file != DIRCONFFILE and os.path.isfile(os.path.join(directory, file)):
+                    filename, file_ext = os.path.splitext(file)
+                    file_ext = file_ext.lower().replace('.', '')
+
+                    if not self._should_ignore(file_ext):
+                        dest_folder = self._get_destination_folder(file_ext, formats, output)
+                        if dest_folder is not None:
+                            try:
+                                self.move_to(file, directory, dest_folder)
+                            except Exception as e:
+                                self.console.print(f'Cannot move file - {file} - {str(e)}')
+                                continue
+            return
+
+        def classify_by_date(self, date_format, output, directory):
+                creation_dates = self._init_classify_by_date(directory)
+                for file, creation_date in creation_dates:
+                    folder = creation_date.format(date_format)
+                    folder = os.path.join(output, folder)
+                    self.move_to(file, directory, folder)
+
                 return
+
+        def classify_by_date_range(self, date_format, output, directory, start_date, end_date):
+                creation_dates = self._init_classify_by_date(directory)
+                for file, creation_date in creation_dates:
+                    if start_date <= creation_date <= end_date:
+                        folder = creation_date.format(date_format)
+                        folder = os.path.join(output, folder)
+                        self.move_to(file, directory, folder)
+
+                return
+
+        def _init_classify_by_date(self, directory):
+                self.console.print("Scanning Files")
+                files = [x for x in os.listdir(directory) if not x.startswith('.')]
+                result = map(
+                    lambda x: (
+                        x,
+                        arrow.get(os.path.getctime(os.path.join(directory, x))),
+                    ),
+                    files,
+                )
+                self.console.print(result)
+                return result
+
+        def classify_by_topic_modeling(self, output, directory):
+            self.console.print("Scanning Files")
+
+            files = [x for x in os.listdir(directory) if not x.startswith('.')]
+            for file in files:
+                folder = self.topic_modeling(file)
+                folder = os.path.join(output, folder)
+                self.move_to(file, directory, folder)
+
+            return
 
         def open_editor(self):
             match PLATFORM:
@@ -153,19 +204,43 @@ class Classifier:
                     self.console.print("Unsupported platform.")
                     return
 
-        def classify_by_date(self, date_format, output, directory):
-            self.console.print("Scanning Files")
+        def _should_ignore(self, file_ext):
+            """
+            Determines whether a file extension should be ignored based on the 'IGNORE' list.
 
-            files = [x for x in os.listdir(directory) if not x.startswith('.')]
-            creation_dates = map(lambda x: (x, arrow.get(os.path.getctime(os.path.join(directory, x)))), files)
-            self.console.print(creation_dates)
+            Args:
+                file_ext (str): The file extension to check.
 
-            for file, creation_date in creation_dates:
-                folder = creation_date.format(date_format)
-                folder = os.path.join(output, folder)
-                self.moveto(file, directory, folder)
+            Returns:
+                bool: True if the file extension should be ignored, False otherwise.
+            """
+            if 'IGNORE' in self.formats:
+                for ignored in self.formats['IGNORE'].replace('\n', '').split(','):
+                    if file_ext == ignored:
+                        return True
+            return False
 
-            return
+        def _get_destination_folder(self, file_ext, formats, output):
+            """
+            Determines the destination folder for a file based on its extension.
+
+            Args:
+                file_ext (str): The file extension to check.
+                formats (dict): The dictionary of file formats and their corresponding folders.
+                output (str): The output directory.
+
+            Returns:
+                str: The destination folder for the file.
+            """
+            for folder, ext_list in list(formats.items()):
+                if folder != 'IGNORE':
+                    folder = os.path.join(output, folder)
+                    if type(ext_list) == str:
+                        ext_list = ext_list.split(',')
+                    for tmp_ext in ext_list:
+                        if file_ext == tmp_ext:
+                            return folder
+            return None
 
         def _format_text_arg(self, arg):
             """ Set a date format to name your folders"""
@@ -177,50 +252,3 @@ class Classifier:
             if isinstance(arg, str):
                 arg = self._format_text_arg(arg)
             return arg
-
-@app.command(
-    context_settings={"allow_extra_args": True, "ignore_unknown_options": True},
-    help="Classify files in a directory"
-)
-@app.command()
-def main(
-    version: bool = typer.Option(False, "--version", help="Show version, filename and exit"),
-    types: bool = typer.Option(False, "--types", help="Show the current list of types and formats"),
-    edittypes: bool = typer.Option(False, "--edittypes", help="Edit the list of types and formats"),
-    reset: bool = typer.Option(False, "--reset", help="Reset the default Config file"),
-    specific_types: Optional[List[str]] = typer.Option(None, "--specific-types", help="Move all file extensions, given in the args list, in the current directory into the Specific Folder"),
-    specific_folder: Optional[str] = typer.Option(None, "--specific-folder", help="Folder to move Specific File Type"),
-    output: Optional[str] = typer.Option(None, "--output", help="Main directory to put organized folders"),
-    directory: Optional[str] = typer.Option(None, "--directory", help="The directory whose files to classify"),
-    date: bool = typer.Option(False, "--date", help="Organize files by creation date"),
-    dateformat: Optional[str] = typer.Option(None, "--dateformat", help="Set the date format using YYYY, MM or DD"),
-    topicmodel: bool = typer.Option(False, "--topicmodel", help="Perform topic modeling on text files"),
-    extensions: Optional[str] = typer.Option(None, "--extensions", help="File extensions to consider for topic modeling (comma-separated)")
-):
-    classifier = Classifier()
-    classifier.args = {
-        "version": version,
-        "types": types,
-        "edittypes": edittypes,
-        "reset": reset,
-        "specific_types": specific_types,
-        "specific_folder": specific_folder,
-        "output": output,
-        "directory": directory,
-        "date": date,
-        "dateformat": dateformat,
-        "topicmodel": topicmodel,
-        "extensions": extensions,
-    }
-
-    if classifier.args["topicmodel"]:
-        if classifier.args["extensions"]:
-            extensions = classifier.args["extensions"].split(',')
-        else:
-            extensions = ['txt', 'pdf', 'doc', 'docx']  # Default extensions for topic modeling
-
-        classifier.topic_modeling(classifier.args["directory"], extensions)
-    classifier.run()
-
-if __name__ == "__main__":
-    app()

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "FileClassifer
+name = "FileClassifer"
 version = "0.1.1"
 description = "Classify based on topic modeling the files in your folder into suitable destinations."
 authors = ["Antoine Boucher <antoine.bou13@gmail.com>"]
@@ -11,7 +11,7 @@ arrow = "^1.2.0"
 rich = "^10.13.0"
 typer = "^0.4.0"
 pandas = "^1.3.4"
-gensim = "^4.1.2"
+gensim = "^4.3.1"
 nltk = "^3.6.5"
 
 [tool.poetry.dev-dependencies]

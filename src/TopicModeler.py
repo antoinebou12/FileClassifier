@@ -45,6 +45,8 @@ class TopicModeler:
         topic_modeler = TopicModeler(num_topics)
         lda = topic_modeler.fit_transform(documents)
 
+        topics = []
         for i in range(lda.num_topics):
-            print(f"Topic {i + 1}:")
-            print(', '.join([term for term, freq in lda.show_topic(i)]))
+            topic = ', '.join([term for term, freq in lda.show_topic(i)])
+            topics.append(topic)
+        return topics
