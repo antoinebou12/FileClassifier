@@ -1,33 +1,20 @@
 import os
+import re
 from gensim import corpora, models
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-from nltk.stem import WordNetLemmatizer
-import nltk
+from transformers import pipeline
 
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('wordnet')
 
-class TopicModeler:
-    def __init__(self, num_topics=5):
+class TransformersTopicModeler:
+    def __init__(self, model_name, num_topics=5):
         self.num_topics = num_topics
-        self.lemmatizer = WordNetLemmatizer()
-        self.stop_words = set(stopwords.words('english'))
+        self.model = pipeline("text2text-generation", model=model_name)
 
     def preprocess(self, text):
         tokens = word_tokenize(text.lower())
         tokens = [self.lemmatizer.lemmatize(token) for token in tokens if token.isalnum() and token not in self.stop_words]
         return tokens
-
-    def fit_transform(self, documents):
-        texts = [self.preprocess(document) for document in documents]
-        dictionary = corpora.Dictionary(texts)
-        corpus = [dictionary.doc2bow(text) for text in texts]
-
-        return models.LdaModel(
-            corpus, num_topics=self.num_topics, id2word=dictionary, passes=15
-        )
 
     def load_documents(self, directory, extensions):
         documents = []
@@ -42,11 +29,12 @@ class TopicModeler:
 
     def topic_modeling(self, directory, extensions, num_topics=5):
         documents = self.load_documents(directory, extensions)
-        topic_modeler = TopicModeler(num_topics)
-        lda = topic_modeler.fit_transform(documents)
-
+        topic_modeler = TransformersTopicModeler(num_topics)
         topics = []
-        for i in range(lda.num_topics):
-            topic = ', '.join([term for term, freq in lda.show_topic(i)])
-            topics.append(topic)
+
+        for document in documents:
+            text = self.preprocess(document)
+            generated_text = self.model(text, max_length=50, num_return_sequences=1)[0]['generated_text']
+            topics.append(generated_text)
+
         return topics

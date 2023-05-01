@@ -1,12 +1,14 @@
 import os
+
 import pytest
-from src.TopicModeler import TopicModeler
+
+from src.model.TopicModeler import TopicModeler
+
 
 @pytest.fixture
 def modeler():
-    return TopicModeler(
-        num_topics=5
-    )
+    return TopicModeler(num_topics=5)
+
 
 def test_lda_model(modeler):
     # Define a simple corpus with 2 topics
@@ -16,7 +18,7 @@ def test_lda_model(modeler):
         "The cat chases a mouse.",
         "The dog barks at the cat.",
         "The cat sleeps in the sun.",
-        "The dog plays with a ball."
+        "The dog plays with a ball.",
     ]
 
     # Save the corpus to test_input directory
@@ -29,7 +31,9 @@ def test_lda_model(modeler):
     expected_topics = ["cat", "dog"]
 
     # Run the LDA model
-    topics = modeler.topic_modeling(directory="test_input", extensions=["txt"], num_topics=2)
+    topics = modeler.topic_modeling(
+        directory="test_input", extensions=["txt"], num_topics=2
+    )
 
     print(topics)
 
@@ -42,5 +46,6 @@ def test_lda_model(modeler):
         os.remove(os.path.join("test_input", file))
     os.rmdir("test_input")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     pytest.main()

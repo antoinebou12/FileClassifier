@@ -1,13 +1,17 @@
-import pytest
 import os
-from src.Classifier import Classifier
+
+import pytest
 from typer.testing import CliRunner
 
+from src.Classifier import Classifier
+
 runner = CliRunner()
+
 
 @pytest.fixture
 def classifier():
     return Classifier(path="test_input")
+
 
 def test_move_to(classifier):
     # Create temporary folders and a file to move
@@ -28,6 +32,7 @@ def test_move_to(classifier):
     os.rmdir("test_source")
     os.rmdir("test_destination")
 
+
 def test_classify(classifier):
     # Create temporary folders and files
     os.makedirs("test_input", exist_ok=True)
@@ -36,7 +41,7 @@ def test_classify(classifier):
         file.write("Test content")
 
     # Call the classify function
-    classifier.classify(classifier.formats, "test_output", "test_input")
+    classifier.classify(classifier.file_utility.formats, "test_output", "test_input")
 
     # Check if the file has been classified
     assert not os.path.exists("test_input/test_file.txt")
@@ -48,5 +53,6 @@ def test_classify(classifier):
     os.rmdir("test_output")
     os.rmdir("test_input")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     pytest.main()
