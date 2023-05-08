@@ -137,6 +137,13 @@ class FileUtils:
         "data": ["dat"],
         "shortcut": ["lnk"],
         "config": ["cfg", "conf", "ini", "log", "reg", "url"],
+        "torrent": ["torrent"],
+        "vector": ["svg", "ai", "eps", "ps"],
+        "3d": ["3ds", "obj", "fbx", "blend", "stl", "ply"],
+        "adobe": ["psd", "xd", "ai", "eps", "ps"],
+        "cad": ["dwg", "dxf"],
+        "gis": ["shp", "kml", "kmz"],
+        "raster": ["png", "jpg", "jpeg", "tif", "tiff", "bmp", "gif"],
     }
 
     folders = {
@@ -290,3 +297,34 @@ class FileUtils:
 
     def check_if_git_repo(self, directory):
         return os.path.exists(os.path.join(directory, ".git"))
+
+    def percentage_of_formats(self, directory):
+        formats = {}
+        for file in os.listdir(directory):
+            filename, file_ext = os.path.splitext(file)
+            file_ext = file_ext.lower().replace(".", "")
+            if file_ext in formats:
+                formats[file_ext] += 1
+            else:
+                formats[file_ext] = 1
+        return formats
+
+    def percentage_of_file_types(self, directory):
+        file_types = {}
+        for file in os.listdir(directory):
+            file_type = self.get_file_type(file)
+            if file_type in file_types:
+                file_types[file_type] += 1
+            else:
+                file_types[file_type] = 1
+        return file_types
+
+    def percentage_of_folder_types(self, directory):
+        folder_types = {}
+        for root, dirs, files in os.walk(directory):
+            for _ in dirs:
+                folder_type = self.folders
+                if folder_type in folder_types:
+                    folder_types[folder_type] += 1
+                else:
+                    folder_types[folder_type] = 1
