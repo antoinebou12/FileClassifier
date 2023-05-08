@@ -1,22 +1,29 @@
 import os
-from gensim import corpora, models
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
-from nltk.stem import WordNetLemmatizer
+
 import nltk
+from gensim import corpora
+from gensim import models
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+
 
 class TopicModeler:
     def __init__(self, num_topics=5):
-        nltk.download('stopwords')
-        nltk.download('punkt')
-        nltk.download('wordnet')
+        nltk.download("stopwords")
+        nltk.download("punkt")
+        nltk.download("wordnet")
         self.num_topics = num_topics
         self.lemmatizer = WordNetLemmatizer()
-        self.stop_words = set(stopwords.words('english'))
+        self.stop_words = set(stopwords.words("english"))
 
     def preprocess(self, text):
         tokens = word_tokenize(text.lower())
-        tokens = [self.lemmatizer.lemmatize(token) for token in tokens if token.isalnum() and token not in self.stop_words]
+        tokens = [
+            self.lemmatizer.lemmatize(token)
+            for token in tokens
+            if token.isalnum() and token not in self.stop_words
+        ]
         return tokens
 
     def fit_transform(self, documents):
@@ -32,10 +39,14 @@ class TopicModeler:
         documents = []
         for file in os.listdir(directory):
             filename, file_ext = os.path.splitext(file)
-            file_ext = file_ext.lower().replace('.', '')
+            file_ext = file_ext.lower().replace(".", "")
 
             if file_ext in extensions and os.path.isfile(os.path.join(directory, file)):
-                with open(os.path.join(directory, file), 'r', encoding='utf-8', errors='ignore') as f:
+                with open(
+                    os.path.join(directory, file),
+                    encoding="utf-8",
+                    errors="ignore",
+                ) as f:
                     documents.append(f.read())
         return documents
 
@@ -46,6 +57,6 @@ class TopicModeler:
 
         topics = []
         for i in range(lda.num_topics):
-            topic = ', '.join([term for term, freq in lda.show_topic(i)])
+            topic = ", ".join([term for term, freq in lda.show_topic(i)])
             topics.append(topic)
         return topics

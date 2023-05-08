@@ -1,0 +1,686 @@
+├── 1681710741279.pdf
+├── admin-openrc.sh
+├── antoinebou12 FoodPlannerAPI main FoodPlanner.Client-Services.zip
+├── antoinebou12 marketwatch main .github.zip
+├── apiEx.py
+├── Archives
+│   ├── 1INCHBTC-1d-2023-04-03.zip
+│   ├── '89 Dennou Kyuusei Uranai (Japan) (1).zip
+│   ├── '89 Dennou Kyuusei Uranai (Japan).zip
+│   ├── argon-dashboard-chakra-main.zip
+│   ├── assets.zip
+│   ├── async-fastapi-mongo-master.zip
+│   ├── autoconfig.zip
+│   ├── awslabs aws-icons-for-plantuml main dist.zip
+│   ├── backtrader-master.zip
+│   ├── bryansx nova-backtest-doc main novalabs-utils.zip
+│   ├── Code_Lab05_GTI619_EQ_D.zip
+│   ├── cookiecutter-spacy-fastapi-master.zip
+│   ├── Cookiecutter-Strategie-main.zip
+│   ├── coverageXML.zip
+│   ├── drive-download-20221218T025543Z-001.zip
+│   ├── drive-download-20230407T153715Z-001.zip
+│   ├── Fichiers (1).zip
+│   ├── Fichiers.zip
+│   ├── full-stack-fastapi-couchbase-master.zip
+│   ├── full-stack-fastapi-postgresql-master.zip
+│   ├── huseinzol05 Stock-Prediction-Models master stock-forecasting-js.zip
+│   ├── ItTakesTwoSaveFile.zip
+│   ├── kali-linux-2023.1-virtualbox-amd64.7z
+│   ├── marketwatch-0.1.2.tar.gz
+│   ├── marketwatch-0.1.5.tar.gz
+│   ├── myvoice.zip
+│   ├── portfolio-main (1).zip
+│   ├── portfolio-main.zip
+│   ├── qwreey75 dotfiles master vscode.zip
+│   ├── RetroArch.7z
+│   ├── RusselResume.zip
+│   ├── ta-lib-0.4.0-src (1).tar.gz
+│   ├── ta-lib-0.4.0-src.tar.gz
+│   ├── Template-Strategie-main.zip
+│   ├── tonybaloney ants-azure-demos master fastapi-cosmos-beanie.zip
+│   ├── Torantulino Auto-GPT master .github.zip
+│   ├── Torantulino Auto-GPT master scripts.zip
+│   └── wordpress-6.1.1.tar.gz
+├── argon-dashboard-chakra-main
+│   ├── CHANGELOG.md
+│   ├── commit.sh
+│   ├── gulpfile.js
+│   ├── ISSUE_TEMPLATE.md
+│   ├── jsconfig.json
+│   ├── LICENSE
+│   ├── package.json
+│   ├── public
+│   │   ├── apple-icon.png
+│   │   ├── favicon.png
+│   │   ├── index.html
+│   │   └── manifest.json
+│   ├── README.md
+│   └── src
+│       ├── assets
+│       ├── components
+│       ├── index.js
+│       ├── layouts
+│       ├── routes.js
+│       ├── theme
+│       ├── variables
+│       └── views
+├── async-fastapi-mongo-master
+│   ├── app
+│   │   ├── __init__.py
+│   │   ├── main.py
+│   │   └── server
+│   ├── LICENSE
+│   ├── Procfile
+│   ├── README.md
+│   └── requirements.txt
+├── auth
+│   └── [...nextauth].ts
+├── backtest.py
+├── basic.ics
+├── binance.py
+├── blazorhero CleanArchitecture master .vscode.zip
+├── chemiNot (1).jnlp
+├── chemiNot (2).jnlp
+├── ChemiNotC.jar
+├── chemiNot.jnlp
+├── code
+│   ├── agent_manager.py
+│   ├── ai_config.py
+│   ├── ai_functions.py
+│   ├── browse.py
+│   ├── call_ai_function.py
+│   ├── chat.py
+│   ├── commands.py
+│   ├── config.py
+│   ├── data
+│   │   └── prompt.txt
+│   ├── data.py
+│   ├── execute_code.py
+│   ├── file_operations.py
+│   ├── image_gen.py
+│   ├── json_parser.py
+│   ├── json_utils.py
+│   ├── llm_utils.py
+│   ├── main.py
+│   ├── memory
+│   │   ├── base.py
+│   │   ├── __init__.py
+│   │   ├── local.py
+│   │   ├── pinecone.py
+│   │   └── redismem.py
+│   ├── speak.py
+│   ├── spinner.py
+│   ├── token_counter.py
+│   └── utils.py
+├── comet.ico
+├── comets.pem
+├── cookiecutter-spacy-fastapi-master
+│   ├── cookiecutter.json
+│   ├── {{cookiecutter.project_slug}}
+│   │   ├── app
+│   │   ├── Dockerfile
+│   │   ├── images
+│   │   ├── main.py
+│   │   ├── README.md
+│   │   └── requirements.txt
+│   ├── images
+│   │   └── cookiecutter-docs.png
+│   ├── LICENSE
+│   ├── README.md
+│   ├── requirements.txt
+│   └── SECURITY.md
+├── Cookiecutter-Strategie-main
+│   ├── environment.yml
+│   ├── README.md
+│   ├── requirements.txt
+│   ├── sample.env
+│   ├── sandbox
+│   │   ├── dsa.ipynb
+│   │   ├── ema.ipynb
+│   │   ├── funding.ipynb
+│   │   ├── macd.ipynb
+│   │   ├── output
+│   │   └── rsiOscillator.ipynb
+│   └── utils
+│       ├── __init__.py
+│       ├── twitter.py
+│       ├── utils.py
+│       └── vocabulaire.py
+├── cv
+│   └── cv.pdf
+├── DEBPackages
+│   └── git-interactive-rebase-tool-ubuntu_amd64.deb
+├── DevStack
+├── DevStackOVSFinal-W2019.ova
+├── df.pkl
+├── Documents
+│   ├── 1681710741279.pdf
+│   ├── 1f22dbde-e7b1-4ca0-9e6d-7242b888e3ab.pdf
+│   ├── 2022 salary guide_randstad canada.pdf
+│   ├── 2022 salary guide_randstad canada_removed.pdf
+│   ├── 2023_salary_guide.pdf
+│   ├── 2023_Salary_Guide__PDF (1).pdf
+│   ├── 2023_Salary_Guide__PDF (2).pdf
+│   ├── 2023_Salary_Guide__PDF.pdf
+│   ├── 5000-s9-fill-22f (1).pdf
+│   ├── 5000-s9-fill-22f.pdf
+│   ├── A25_details_de_paiement.pdf
+│   ├── ae69f49d-1a6b-43b6-8520-2e1066c46dbf.pdf
+│   ├── AIPRM-export-chatgpt-thread_2023-03-24T03_40_14.349Z.md
+│   ├── AIPRM-export-chatgpt-thread_2023-03-26T01_38_55.832Z.md
+│   ├── AIPRM-export-chatgpt-thread_2023-03-31T17_44_47.827Z.md
+│   ├── AIPRM-export-chatgpt-thread_2023-04-26T01_54_24.222Z.md
+│   ├── AIPRM-export-chatgpt-thread_2023-04-26T01_54_59.680Z.md
+│   ├── AIPRM-export-chatgpt-thread_2023-04-26T02_10_30.753Z.md
+│   ├── ALGOETS.pdf
+│   ├── Antoine Boucher CV Avril 2023 EN.docx (1).pdf
+│   ├── Antoine Boucher CV Avril 2023 EN.docx (2).pdf
+│   ├── Antoine Boucher CV Avril 2023 EN.docx (3).pdf
+│   ├── Antoine Boucher CV Avril 2023 EN.docx (4).pdf
+│   ├── Antoine Boucher CV Avril 2023 EN.docx.pdf
+│   ├── Antoine Boucher CV Long Avril 2023 EN.pdf
+│   ├── BlankDiagram.pdf
+│   ├── BOUA12039801_Feuillet_fiscal_ETS_pour_2022_R1.pdf
+│   ├── BOUA12039801_Feuillet_fiscal_ETS_pour_2022-Releve8.pdf
+│   ├── BOUA12039801_Feuillet_fiscal_ETS_pour_2022-T2202A.pdf
+│   ├── BOUA12039801_Feuillet_fiscal_ETS_pour_2022_T4A.pdf
+│   ├── Budget-fra - 2023-03-07 01_06_38.xlsx
+│   ├── caddy-exporter_rev1.json
+│   ├── chatgpt.md
+│   ├── collection.json
+│   ├── combinepdf (1).pdf
+│   ├── combinepdf (2).pdf
+│   ├── combinepdf.pdf
+│   ├── Cours-08-Analyse_de_risque.pdf
+│   ├── Cours-08-Analyse_de_risque - Tracage de contacts.pdf
+│   ├── Cours-09-Audit_Mot de passe.pdf
+│   ├── Cours-09-IAAA (1).pdf
+│   ├── Cours-09-IAAA.pdf
+│   ├── Cours-09-Mot_de_passe_politique.pdf
+│   ├── Cours-10-Kerberos-SSL.pdf
+│   ├── Cours-10-WiFi.pdf
+│   ├── Cours-11-A-Internet_Protection-Prevention (1).pdf
+│   ├── Cours-11-A-Internet_Protection-Prevention.pdf
+│   ├── Cours-11-B-Internet_Protection-Detection.pdf
+│   ├── Cours-12-Principes-de-sécurité.pdf
+│   ├── cours-13.pdf
+│   ├── cover_letter_150624.pdf
+│   ├── coverletter.odt
+│   ├── cover_letter_radio_canada.odt
+│   ├── cover_letter_radio_canada.pdf
+│   ├── cover_letter_spotify.odt
+│   ├── cover_letter_spotify.pdf
+│   ├── cv_1_page.pdf
+│   ├── cv2.pdf
+│   ├── CV Alexi Martel-ChaputMars2023.docx.pdf
+│   ├── cv.pdf
+│   ├── d5471af4_2023-03-02_30.csv
+│   ├── Description du post -Full stack.docx
+│   ├── DiagramGenerator.pdf
+│   ├── Diagramme EA avec entités en couleur (notation UML).csv
+│   ├── diagrammingprompt.md
+│   ├── download (1).csv
+│   ├── download.csv
+│   ├── download.pdf
+│   ├── enquete_remuneration_2021_genium360.pdf
+│   ├── environment.json
+│   ├── example (1).csv
+│   ├── example (1).xlsx
+│   ├── example.csv
+│   ├── example.xlsx
+│   ├── Exemples MME sur Excel (1).xlsx
+│   ├── Exemples MME sur Excel.xlsx
+│   ├── f7cfb5a2-88ad-4ffb-96a7-474af1a6945c.pdf
+│   ├── Gabarits - proposition de valeur et persona.pdf
+│   ├── Gabarits_-_proposition_de_valeur_et_persona.pdf
+│   ├── gst115-fill-20f.pdf
+│   ├── GTI619_H21_Lab03_EqF (1).pdf
+│   ├── GTI619_H21_Lab03_EqF (2).pdf
+│   ├── GTI619_H21_Lab03_EqF (3).pdf
+│   ├── GTI619_H21_Lab03_EqF.pdf
+│   ├── GTI619_Lab03-Enoncé.pdf
+│   ├── GTI619_Lab04_Enoncé (1).pdf
+│   ├── GTI619_Lab04_Enoncé.pdf
+│   ├── GTI619.pdf
+│   ├── GTI619_Rappport_Lab04.pdf
+│   ├── GTI778-Labo2-Part1.docx.pdf
+│   ├── GTI778-Labo2-Part1-FeuilleDeRéponse.docx
+│   ├── GTI778-Labo2-V01-OpenStack.pdf
+│   ├── GTI778.pdf
+│   ├── Holdings - Antoine Boucher.csv
+│   ├── infos-exam-final.pdf
+│   ├── Lab05_GTI619_EQ_D.pdf
+│   ├── Laboratoire 4_ OpenSSL & Crypto.pdf
+│   ├── Lettre Antoine.docx
+│   ├── Lettre Antoine.pdf
+│   ├── Liste des principes.pdf
+│   ├── mckays_prompts_4-19-23.json
+│   ├── MIse en situation.pdf
+│   ├── Mises en situation - Reponses.pdf
+│   ├── Module 2 Le modèle daffaires.pdf
+│   ├── open_ai-uml-plugin-l9cxw7b8u-antoinebou12_vercel_app_logs.csv
+│   ├── Ordre du jour AlgoÉTS 28 mars 2023 (1).docx
+│   ├── Ordre_du_jour_AlgoETS_28_mars_2023.docx
+│   ├── Ordre du jour AlgoÉTS 28 mars 2023.docx
+│   ├── panda.pdf
+│   ├── PB01681FR_remuneration2022F01.pdf
+│   ├── pb-mid-year-outlook-2022.pdf
+│   ├── Phoenix_ETS_-_Charte_et_code_de_conduite_.pdf
+│   ├── Portfolio Transactions - Antoine Boucher.csv
+│   ├── Présentation MME (1).pptx
+│   ├── Presentation_MME.pptx
+│   ├── Présentation MME.pptx
+│   ├── Profile.pdf
+│   ├── Projet_dentreprise_A20211.pdf
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   ├── PyPI-Recovery-Codes-antoineboucher12-2023-03-27T02_47_40.101036.txt
+│   ├── Rapport (1).pdf
+│   ├── Rapport.pdf
+│   ├── Resume-Alexi-Martel-Chaput.pdf
+│   ├── robert-half-guide-de-salaires-2021.pdf
+│   ├── semaine_08.pdf
+│   ├── semaine_09.pdf
+│   ├── semaine_10a.pdf
+│   ├── semaine_10.pdf
+│   ├── semaine_11.pdf
+│   ├── semaine_12.pdf
+│   ├── SVM.pdf
+│   ├── t2sch44-fill-07f.pdf
+│   ├── t4-fill-22f.pdf
+│   ├── wage_2012.csv
+│   ├── wage_2013.csv
+│   ├── wage_2014.csv
+│   ├── wage_2015.csv
+│   ├── wage_2016.csv
+│   ├── wage_2017.csv
+│   ├── wage_2018.csv
+│   ├── wage_2019.csv
+│   ├── wage_2020.csv
+│   ├── wage_2021.csv
+│   ├── wage_2022.csv
+│   ├── Wang03-shazam.pdf
+│   ├── whatsapp-web.js_pedroslopez_d8fd4579143624384004c1f966bb1d92f0a69036.json
+│   └── Yearly-budget-worksheet.xls
+├── download.ics
+├── downloads
+├── drive-download-20230407T153715Z-001
+│   ├── 1 - Recherche
+│   ├── 2- Interview
+│   ├── 3 - Article
+│   ├── 4 - Video
+│   └── assets
+├── fceumm_libretro.wasm
+├── fiche nouvel employé (fr).pdf
+├── fiche nouvel employé (fr)_signed.pdf
+├── full-stack-fastapi-couchbase-master
+│   ├── cookiecutter.json
+│   ├── {{cookiecutter.project_slug}}
+│   │   ├── backend
+│   │   ├── cookiecutter-config-file.yml
+│   │   ├── docker-compose.deploy.build.yml
+│   │   ├── docker-compose.deploy.command.yml
+│   │   ├── docker-compose.deploy.images.yml
+│   │   ├── docker-compose.deploy.labels.yml
+│   │   ├── docker-compose.deploy.networks.yml
+│   │   ├── docker-compose.deploy.volumes-placement.yml
+│   │   ├── docker-compose.dev.build.yml
+│   │   ├── docker-compose.dev.command.yml
+│   │   ├── docker-compose.dev.env.yml
+│   │   ├── docker-compose.dev.labels.yml
+│   │   ├── docker-compose.dev.networks.yml
+│   │   ├── docker-compose.dev.ports.yml
+│   │   ├── docker-compose.dev.volumes.yml
+│   │   ├── docker-compose.shared.admin.yml
+│   │   ├── docker-compose.shared.base-images.yml
+│   │   ├── docker-compose.shared.depends.yml
+│   │   ├── docker-compose.shared.env.yml
+│   │   ├── docker-compose.test.yml
+│   │   ├── env-backend.env
+│   │   ├── env-couchbase.env
+│   │   ├── env-flower.env
+│   │   ├── env-sync-gateway.env
+│   │   ├── frontend
+│   │   ├── README.md
+│   │   ├── scripts
+│   │   └── sync-gateway
+│   ├── dev-fsfcb-back.sh
+│   ├── dev-fsfcb-config.yml
+│   ├── dev-fsfcb.sh
+│   ├── hooks
+│   │   └── post_gen_project.py
+│   ├── LICENSE
+│   ├── README.md
+│   ├── screenshot.png
+│   ├── scripts
+│   │   ├── discard-dev-files.sh
+│   │   └── generate_cookiecutter_config.py
+│   ├── testing-config.yml
+│   └── test.sh
+├── full-stack-fastapi-postgresql-master
+│   ├── CONTRIBUTING.md
+│   ├── cookiecutter.json
+│   ├── {{cookiecutter.project_slug}}
+│   │   ├── backend
+│   │   ├── cookiecutter-config-file.yml
+│   │   ├── docker-compose.override.yml
+│   │   ├── docker-compose.yml
+│   │   ├── frontend
+│   │   ├── README.md
+│   │   └── scripts
+│   ├── hooks
+│   │   └── post_gen_project.py
+│   ├── img
+│   │   ├── dashboard.png
+│   │   ├── docs.png
+│   │   ├── login.png
+│   │   └── redoc.png
+│   ├── LICENSE
+│   ├── README.md
+│   └── scripts
+│       ├── dev-fsfp-back.sh
+│       ├── dev-fsfp.sh
+│       ├── dev-link.sh
+│       ├── discard-dev-files.sh
+│       ├── generate_cookiecutter_config.py
+│       └── test.sh
+├── FUNDING.yml
+├── ggml-vocab.bin
+├── gpt4all-installer-linux.run
+├── gpt4all.py
+├── guestbook.ts
+├── huseinzol05 Stock-Prediction-Models master stock-forecasting-js
+│   ├── css
+│   │   ├── materialize.min.css
+│   │   ├── style.css
+│   │   └── xmark.gif
+│   ├── data
+│   │   └── google.js
+│   ├── fonts
+│   │   └── roboto
+│   ├── index.html
+│   ├── init.js
+│   ├── js
+│   │   ├── d3.v3.min.js
+│   │   ├── d3.v5.min.js
+│   │   ├── echarts-gl.min.js
+│   │   ├── echarts.min.js
+│   │   ├── jquery-3.3.1.min.js
+│   │   ├── materialize.min.js
+│   │   ├── numeric-1.2.6.min.js
+│   │   ├── numjs.min.js
+│   │   ├── papaparse.min.js
+│   │   ├── plotly-latest.min.js
+│   │   ├── science.v1.min.js
+│   │   ├── tf-expand.js
+│   │   ├── tf.js
+│   │   └── utils.js
+│   ├── README.md
+│   └── screenshot
+│       ├── 1.png
+│       ├── 2.png
+│       ├── 3.png
+│       └── 4.png
+├── ISSUE_TEMPLATE
+│   ├── 1.bug.yml
+│   └── 2.feature.yml
+├── jnlp.jar
+├── leerob leerob.io main pages-api.zip
+├── libretro.js
+├── marketwatch-0.1.2-py3-none-any (1).whl
+├── marketwatch-0.1.2-py3-none-any.whl
+├── marketwatch-0.1.5-py3-none-any.whl
+├── marketwatch.png
+├── memory
+│   ├── base.py
+│   ├── __init__.py
+│   ├── local.py
+│   ├── pinecone.py
+│   └── redismem.py
+├── mkdocs.yml
+├── Moana (2016) 1080p BluRay AV1 Opus 7.1 [RAV1NE]
+│   ├── Moana.2016.1080p.BluRay.AV1.Opus.7.1-RAV1NE.mkv
+│   └── NFO & Guide
+│       ├── How to Play AV1.txt
+│       └── RAV1NE.nfo
+├── Music
+│   ├── bark.wav
+│   ├── download (1).mp3
+│   ├── download.mp3
+│   ├── kanye.mp3
+│   ├── Les Louanges - Tercel (Official Music Video).mp3
+│   ├── New Recording 13.m4a
+│   ├── onlymp3.to - Real-V28HyPNAl_0-256k-1656630227237.mp3
+│   ├── onlymp3.to - Real-V28HyPNAl_0-256k-1656630227237 [music].mp3
+│   ├── Record (online-voice-recorder.com) (1).mp3
+│   ├── Record (online-voice-recorder.com) (2).mp3
+│   ├── Record (online-voice-recorder.com) (3).mp3
+│   ├── Record (online-voice-recorder.com).mp3
+│   ├── suno_french.mp3
+│   └── toast.wav
+├── og.tsx
+├── org.gimp.GIMP.flatpakref
+├── papers
+│   ├── A_3D_variant_of_Vogel_s_model_to_observe_prime_patterns_in_a_spherical_coordinate_system.pdf
+│   └── Algorithmic_Study_of_the_Relation_of_Peaceful_and_Violent_Subjects_to_Philosophy_Using_Wikipedia_and_a_Python_Crawler.pdf
+├── Pictures
+│   ├── 1f4c8.png
+│   ├── 336632741_157366930577390_976506635355265336_n.jpg
+│   ├── advanced_no_style_quebec_chalet.jpeg
+│   ├── ALGOETS.png
+│   ├── asilo.jpg
+│   ├── asilo.webp
+│   ├── b3cef629-2b77-4b56-90b0-38db13d03b7c.jpeg
+│   ├── benchmark.png
+│   ├── benchmark.webp
+│   ├── Blank diagram.png
+│   ├── caro_canada.jpg
+│   ├── caro_flower.jpg
+│   ├── comet.png
+│   ├── comet.svg
+│   ├── cryc.jpg
+│   ├── daniel.jpg
+│   ├── DanielMartinez.webp
+│   ├── Diagramme EA avec entités en couleur (notation UML) - Diagramme EA avec entités en couleur (notation UML) (1).png
+│   ├── Diagramme EA avec entités en couleur (notation UML) - Diagramme EA avec entités en couleur (notation UML) (2).png
+│   ├── Diagramme EA avec entités en couleur (notation UML) - Diagramme EA avec entités en couleur (notation UML) (3).png
+│   ├── Diagramme EA avec entités en couleur (notation UML) - Diagramme EA avec entités en couleur (notation UML).png
+│   ├── Diagramme EA avec entités en couleur (notation UML) - Diagramme physique des tables.png
+│   ├── Diagramme EA avec entités en couleur (notation UML) - Page 4.png
+│   ├── digital_painting_quebec_chalet.jpeg
+│   ├── download.png
+│   ├── e178d40d-fe6f-40dd-9f3a-8e63645ff21a.jpeg
+│   ├── ezgif-1-79b805de7e.gif
+│   ├── FrMr4dMaAAEFVDX.jpeg
+│   ├── gpt.png
+│   ├── image2.svg
+│   ├── image3.svg
+│   ├── image.svg
+│   ├── logo.png
+│   ├── mermaid-diagram-2023-03-24-004421.png
+│   ├── Peek 2023-03-01 18-50.gif
+│   ├── process.png
+│   ├── PXL_20230329_133117514.MP.jpg
+│   ├── PXL_20230329_134608960.MP.jpg
+│   ├── PXL_20230329_134612811.MP.jpg
+│   ├── PXL_20230329_135250452.MP.jpg
+│   ├── PXL_20230329_135411240.MP.jpg
+│   ├── PXL_20230329_140157813.MP.jpg
+│   ├── PXL_20230329_142201004.MP.jpg
+│   ├── repository-open-graph-template.png
+│   ├── Screenshot from 2023-01-17 19-22-50.png
+│   ├── Screenshot from 2023-03-02 16-34-58.png
+│   ├── Screenshot from 2023-03-12 13-44-56.png
+│   ├── Screenshot from 2023-03-22 17-37-34.png
+│   ├── Screenshot from 2023-04-09 13-04-07.png
+│   ├── Screenshot from 2023-04-16 22-21-48.png
+│   ├── uml.png
+│   ├── untitled (1).png
+│   ├── untitled (2).png
+│   ├── untitled (3).png
+│   ├── untitled (4).png
+│   ├── untitled (5).png
+│   ├── untitled (6).png
+│   ├── untitled (7).png
+│   ├── untitled.png
+│   ├── Untitled.png
+│   └── untitled.svg
+├── pre-commit-config.yaml
+├── Programs
+│   └── SparkARStudio_v156.msi
+├── qwreey75 dotfiles master vscode
+│   ├── theme.css
+│   └── trailCursorEffect
+│       ├── index.js
+│       └── README.md
+├── resume
+│   ├── cv
+│   │   ├── achievements.tex
+│   │   ├── education.tex
+│   │   ├── experience.tex
+│   │   ├── interests.tex
+│   │   ├── languages.tex
+│   │   ├── projects.tex
+│   │   ├── publications.tex
+│   │   ├── references.bib
+│   │   ├── skills.tex
+│   │   └── summary.tex
+│   ├── fonts
+│   │   ├── FontAwesome.ttf
+│   │   ├── Roboto-BoldItalic.ttf
+│   │   ├── Roboto-Bold.ttf
+│   │   ├── Roboto-Italic.ttf
+│   │   ├── Roboto-LightItalic.ttf
+│   │   ├── Roboto-Light.ttf
+│   │   ├── Roboto-MediumItalic.ttf
+│   │   ├── Roboto-Medium.ttf
+│   │   ├── Roboto-Regular.ttf
+│   │   ├── Roboto-ThinItalic.ttf
+│   │   └── Roboto-Thin.ttf
+│   ├── profile.png
+│   ├── resume.tex
+│   └── russell.cls
+├── rss.db
+├── RusselResume.pdf
+├── salary_guide_2023.pkl
+├── salary_guide.pkl
+├── Simply Accounting by Sage Setup Files CDN
+│   ├── ACT!Link
+│   │   ├── data1.cab
+│   │   ├── data1.hdr
+│   │   ├── data2.cab
+│   │   ├── ISSetup.dll
+│   │   ├── layout.bin
+│   │   ├── _Setup.dll
+│   │   ├── setup.exe
+│   │   ├── setup.ini
+│   │   └── setup.inx
+│   ├── AUTORUN.INF
+│   ├── BIN
+│   │   ├── 50comupd.exe
+│   │   ├── AnswerWorks
+│   │   ├── atrecply.msi
+│   │   ├── DEMO32.EXE
+│   │   ├── jet40sp4.exe
+│   │   ├── KB908002
+│   │   ├── MDAC
+│   │   ├── MySQLODBC
+│   │   ├── SIMPLYCD.ico
+│   │   ├── simply.dbd
+│   │   ├── simplyfr.dbd
+│   │   └── VIEWFILE.EXE
+│   ├── EFT
+│   │   ├── data1.cab
+│   │   ├── data1.hdr
+│   │   ├── data2.cab
+│   │   ├── engine32.cab
+│   │   ├── layout.bin
+│   │   ├── setupdir
+│   │   ├── setup.exe
+│   │   ├── setup.ibt
+│   │   ├── setup.ini
+│   │   └── setup.inx
+│   ├── launch.exe
+│   ├── manuals
+│   │   ├── ACTLinkGSGuide.pdf
+│   │   ├── DataDict.pdf
+│   │   ├── GStartEntFr.pdf
+│   │   ├── GStartEnt.pdf
+│   │   ├── GStart_FirstStepFr.pdf
+│   │   ├── GStart_FirstStep.pdf
+│   │   ├── GStartFr.pdf
+│   │   ├── GStart.pdf
+│   │   ├── InstallGuide.chm
+│   │   ├── InstallGuideFr.chm
+│   │   ├── SimplyInstallGuide.chm
+│   │   └── SimplyInstallGuideFr.chm
+│   ├── SADemo2010
+│   │   ├── English
+│   │   └── French
+│   ├── SA Ent 2010.txt
+│   ├── SAProdInterview2010
+│   │   ├── SimplyAccountingInterviewEnglish.exe
+│   │   └── SimplyAccountingInterviewFR.exe
+│   ├── Services
+│   │   ├── SimServ.chm
+│   │   └── SimServFr.chm
+│   └── simply
+│       ├── 1033.mst
+│       ├── 3084.mst
+│       ├── 409
+│       ├── c0c
+│       ├── Data1.cab
+│       ├── ISSetup.dll
+│       ├── SA2010.msi
+│       └── setup.exe
+├── so_vits_svc_4_0_inference.ipynb
+├── stackoverflow_salary_data.pkl
+├── Star.Wars.Episode.IV.A.New.Hope.1977.REMASTERED.1080p.BluRay.x265-RARBG
+│   ├── RARBG_DO_NOT_MIRROR.exe
+│   ├── RARBG.txt
+│   ├── Star.Wars.Episode.IV.A.New.Hope.1977.REMASTERED.1080p.BluRay.x265-RARBG.mp4
+│   └── Subs
+│       ├── 2_English.srt
+│       └── 3_English.srt
+├── stocks-screener.ini
+├── TE-Piracy.torrent
+├── The.Last.of.Us.S01E01.1080p.WEB.H264-CAKES[TGx]
+│   ├── NEW upcoming releases by Xclusive.txt
+│   ├── [TGx]Downloaded from torrentgalaxy.to .txt
+│   ├── the.last.of.us.s01e01.1080p.web.h264-cakes.mkv
+│   └── the.last.of.us.s01e01.1080p.web.h264-cakes.nfo
+├── The Sims 4 [FitGirl Repack]
+│   ├── fg-01.bin
+│   ├── fg-02.bin
+│   ├── fg-03.bin
+│   ├── MD5
+│   │   ├── fitgirl-bins.md5
+│   │   ├── QuickSFV.EXE
+│   │   └── QuickSFV.ini
+│   ├── setup.exe
+│   └── Verify BIN files before installation.bat
+├── [ TutPig.com ] Udemy - Accounting 101 - The Principles Of Accounting
+│   ├── Get Bonus Downloads Here.url
+│   └── ~Get Your Files Here !
+│       ├── 1 - Introduction To The Course
+│       ├── 2 - The Basics
+│       ├── 3 - The Journal
+│       ├── 4 - Conclusion Practice Questions
+│       └── Bonus Resources.txt
+├── Unconfirmed 279718.crdownload
+├── Videos
+│   ├── 10000000_6453360494708043_3539437801247531693_n.mp4
+│   ├── 230490503-417e688d-5115-4eee-9550-b46a2b465ee3.webm
+│   ├── 3D print.mp4
+│   ├── download (1).mp4
+│   ├── download.mp4
+│   └── test_video.mp4
+├── views
+│   ├── index.ts
+│   └── [slug].ts
+├── VisualStudioSetup.exe
+├── Void_Cheque.pdf
+├── wages.pkl
+├── wasm4_libretro.wasm
+└── workflows
+    └── auto_format.yml
